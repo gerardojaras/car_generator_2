@@ -1,0 +1,18 @@
+.main{
+  display: flex;
+  .features{
+    display: flex;
+    flex-direction: column;
+    .feature{
+      display: flex;
+      flex-direction: row;
+      .feature_title{
+        display: flex;
+        font-weight: bold;
+      }
+      .feature_value{
+        display: flex;
+      }
+    }
+  }
+}

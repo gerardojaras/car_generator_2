@@ -5,6 +5,25 @@ module.exports = {
     author: `@gatsbyjs`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-mysql`,
+      options: {
+        connectionDetails: {
+          host: '192.168.10.10',
+          user: 'homestead',
+          password: 'secret',
+          database: 'cars'
+        },
+        queries: [
+          {
+            statement: 'select * from cars_models_trims',
+            idFieldName: 'id',
+            name: 'cars'
+          }
+        ]
+      }
+    },
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -24,7 +43,6 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
