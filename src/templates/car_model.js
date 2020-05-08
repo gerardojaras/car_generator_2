@@ -1,25 +1,67 @@
 import React from "react"
 import Layout from "../components/layout"
 import { graphql } from "gatsby"
+import styles from "./car_model.module.scss"
 
 export default ({ data }) => {
   return (
     <Layout>
-      <section id="pageContent">
-        <h1><strong>MAKE! MODEL! Car Insurance Rates & Quotes</strong></h1>
-      </section>
-      <section id="pageContent">
-        <main role="main">
-          {data.allMysqlCars.edges.map(({ node }, i) => (
-            <div key={i}>
-              <article>
-                <h2>
-                  ¿Cuánto cuesta asegurar mi
-                  <span dangerouslySetInnerHTML={{ __html: node.make }}/>
-                  <span dangerouslySetInnerHTML={{ __html: node.model }}/>
-                  <span dangerouslySetInnerHTML={{ __html: node.trim }}/>
-                </h2>
-              </article>
+      {data.allMysqlCars.edges.map(({ node }, i) => (
+        <div key={i} className={styles.main}>
+          <h1 className={styles.title}><strong><span dangerouslySetInnerHTML={{ __html: node.make }}/> <span
+            dangerouslySetInnerHTML={{ __html: node.model }}/> </strong></h1>
+          <h2>
+            ¿Cuánto cuesta asegurar mi <span dangerouslySetInnerHTML={{ __html: node.make }}/> <span
+            dangerouslySetInnerHTML={{ __html: node.model }}/> <span
+            dangerouslySetInnerHTML={{ __html: node.car_trim }}/>?
+          </h2>
+          <div className={styles.car_information}>
+            <div className={styles.info}>
+              <table className={styles.table}>
+                <tr>
+                  <th colSpan="2">Car Information</th>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Make</td>
+                  <td className={styles.content}><span dangerouslySetInnerHTML={{ __html: node.make }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Model</td>
+                  <td className="tg-ly6r"><span dangerouslySetInnerHTML={{ __html: node.model }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Year</td>
+                  <td className="tg-ly6r"><span dangerouslySetInnerHTML={{ __html: node.year }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Average Annual Insurance Cost</td>
+                  <td>Not Available</td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>County of Origin</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.country_origin }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Car Classification</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.classification }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Engine Size (l)</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.engine_size }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Horsepower (HP)</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.hp }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Range (miles)</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.range }}/></td>
+                </tr>
+                <tr>
+                  <td className={styles.title}>Country of Origin</td>
+                  <td><span dangerouslySetInnerHTML={{ __html: node.country_origin }}/></td>
+                </tr>
+              </table>
 
 
               <br/>
@@ -85,53 +127,58 @@ export default ({ data }) => {
                   La historia del solicitante, la marca y modelo del automóvil, la edad del automóvil, incluso el tamaño
                   del motor del automóvil siguen siendo factores en el costo de asegurar su automóvil.</p>
               </article>
-              <article>
-                <h2>What is my MAKE! MODEL! worth?</h2>
-                <p>What your car is worth depends on many factors like whether you are selling it private party or
-                  trading
-                  it in. To best estimate the value of your car we recommend going to <a
-                    href="https://www.edmunds.com/appraisal/">Edmunds.com</a></p>
-              </article>
+
             </div>
-          ))}
-        </main>
-      </section>
-      <aside>
-        <div><br/>
-          <div style={{ "textAlign": "center" }}><img src="carinsurance.png" height="170" alt="YEAR!MAKE!MODEL!"/>
+            <aside>
+              <div><br/>
+                <div style={{ "textAlign": "center" }}>
+                  <img src={node.image.split(";", 2)[1].split(",", 1)}/>
+                </div>
+              </div>
+              <div>
+                <a href="http://cotizaseguro.com/medical-insurance/" target="_blank" rel="noopener noreferrer">
+                  <div style={{ "textAlign": "center" }}>Health Insurance</div>
+                </a>
+              </div>
+              <div>
+                <a href="https://www.cotizaseguro.com/health" target="_blank" style={{ "textAlign": "center" }}
+                   rel="noopener noreferrer">
+                  Home Insurance
+                </a>
+              </div>
+              <div>
+                <a href="http://cotizaseguro.com/life-insurance/" target="_blank" rel="noopener noreferrer"><br/>
+                  <div style={{ "textAlign": "center" }}>Life Insurance</div>
+                </a>
+              </div>
+            </aside>
           </div>
+
         </div>
-        <div>
-          <a href="http://cotizaseguro.com/medical-insurance/" target="_blank" rel="noopener noreferrer">
-            <div style={{ "textAlign": "center" }}>Health Insurance</div>
-          </a>
-        </div>
-        <div>
-          <a href="https://www.cotizaseguro.com/health" target="_blank" style={{ "textAlign": "center" }}
-             rel="noopener noreferrer">
-            Home Insurance
-          </a>
-        </div>
-        <div>
-          <a href="http://cotizaseguro.com/life-insurance/" target="_blank" rel="noopener noreferrer"><br/>
-            <div style={{ "textAlign": "center" }}>Life Insurance</div>
-          </a>
-        </div>
-      </aside>
+      ))}
     </Layout>
   )
 }
 export const query = graphql`
-query($id: Int) {
-allMysqlCars(limit: 10, filter: {mysqlId: {eq: $id}}) {
-edges {
-node {
-mysqlId
-make
-model
-trim
-}
-}
-}
-}
+    query($id: Int) {
+        allMysqlCars(limit: 10, filter: {mysqlId: {eq: $id}}) {
+            edges {
+                node {
+                    mysqlId
+                    make
+                    model
+                    car_trim
+                    year
+                    country_origin
+                    classification
+                    engine_size
+                    hp
+                    country_origin
+                    range
+                    doors
+                    image
+                }
+            }
+        }
+    }
 `

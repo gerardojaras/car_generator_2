@@ -10,6 +10,8 @@ exports.createPages = ({ graphql, actions }) => {
             mysqlId
             make
             model
+            car_trim
+            year
           }
         }
       }
@@ -17,8 +19,8 @@ exports.createPages = ({ graphql, actions }) => {
   `).then(result => {
     result.data.cars.edges.forEach(({ node }) => {
       createPage({
-        //path: node.mysqlId + "-" + node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.trim.replace(/ /g, "-"),
-        path: node.mysqlId + "-" + node.make + "-" + node.model,
+        path: node.mysqlId + "-" + node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-") + "-" + node.year,
+        //path: node.mysqlId + "-" + node.make + "-" + node.model + "-" + node.car_trim,
         component: path.resolve(`./src/templates/car_model.js`),
         context: {
           // This is the $slug variable

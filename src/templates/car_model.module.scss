@@ -1,17 +1,49 @@
-.main{
+.main {
   display: flex;
-  .features{
+  flex-direction: column;
+  max-width: 80%;
+  padding-top: 3rem;
+
+  h2 {
+    margin-top: 1rem;
+    border-bottom: 1px dotted #999;
+    padding-bottom: 1rem;
+  }
+
+  .title {
     display: flex;
     flex-direction: column;
-    .feature{
-      display: flex;
-      flex-direction: row;
-      .feature_title{
-        display: flex;
-        font-weight: bold;
+  }
+
+  .car_information {
+    display: flex;
+    align-self: center;
+
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    padding-right: 5rem;
+
+    .table {
+      margin-top: 1rem;
+
+      th, td {
+        border: 1px dotted #999;
+        padding: 0.5rem;
+        text-align: left;
       }
-      .feature_value{
-        display: flex;
+
+      th {
+        text-align: left;
+      }
+
+      .title {
+        background-color: #c0c0c0;
+        border-color: #efefef;
+        text-align: left;
+        vertical-align: top;
       }
     }
   }

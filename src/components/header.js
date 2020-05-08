@@ -1,27 +1,29 @@
 import React from "react"
 import Img from "gatsby-image"
 import { useStaticQuery } from "gatsby"
+import styles from "./header.module.scss"
 
 const Header = ({ siteTitle }) => {
   const logo = useStaticQuery(graphql`
-    query {
-      file(relativePath: {eq: "logo.png"}) {
-        childImageSharp {
-          fixed(height: 72, width: 450) {
-             ...GatsbyImageSharpFixed
+      query {
+          file(relativePath: {eq: "logo.png"}) {
+              childImageSharp {
+                  fixed(height: 72, width: 450) {
+                      ...GatsbyImageSharpFixed
+                  }
+              }
           }
-        }
       }
-    }
   `)
-  return(
-    <header>
-      <a href="www.cotizaseguro.com" >
+  return (
+    <header className={styles.header}>
+      <a href="www.cotizaseguro.com">
         <Img
           fixed={logo.file.childImageSharp.fixed}
           alt="Trusted Consumer"
+          className="logo"
         />
-        </a>
+      </a>
       <nav>
         <ul>
           <li><a href="https://www.cotizaseguro.com">Home</a></li>
