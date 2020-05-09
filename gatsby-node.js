@@ -17,6 +17,7 @@ exports.createPages = ({ graphql, actions }) => {
       }
     }
   `).then(result => {
+    console.log(result)
     result.data.cars.edges.forEach(({ node }) => {
       createPage({
         path: node.mysqlId + "-" + node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-") + "-" + node.year,

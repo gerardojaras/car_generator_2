@@ -19,6 +19,11 @@ module.exports = {
             statement: "select * from cars_models_trims limit 300",
             idFieldName: "id",
             name: "cars"
+          },
+          {
+            statement: "select id, distinct(make) from cars_models_trims",
+            idFieldName: "id",
+            name: "makes"
           }
         ]
       }
