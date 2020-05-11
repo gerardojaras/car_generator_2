@@ -18,9 +18,12 @@ export default ({ data }) => {
           <div className={styles.car_information}>
             <div className={styles.info}>
               <table className={styles.table}>
+                <thead>
                 <tr>
                   <th colSpan="2">Car Information</th>
                 </tr>
+                </thead>
+                <tbody>
                 <tr>
                   <td className={styles.title}>Make</td>
                   <td className={styles.content}><span dangerouslySetInnerHTML={{ __html: node.make }}/></td>
@@ -61,6 +64,7 @@ export default ({ data }) => {
                   <td className={styles.title}>Country of Origin</td>
                   <td><span dangerouslySetInnerHTML={{ __html: node.country_origin }}/></td>
                 </tr>
+                </tbody>
               </table>
 
 
@@ -132,7 +136,8 @@ export default ({ data }) => {
             <aside>
               <div><br/>
                 <div style={{ "textAlign": "center" }}>
-                  <img src={node.image.split(";", 2)[1].split(",", 1)}/>
+                  <img src={node.image.split(";", 4)[3].split(",", 1)}
+                       alt={node.make + " " + node.model + " " + node.car_trim}/>
                 </div>
               </div>
               <div>

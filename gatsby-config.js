@@ -21,7 +21,7 @@ module.exports = {
             name: "cars"
           },
           {
-            statement: "select id, distinct(make) from cars_models_trims",
+            statement: "select distinct make from cars_models_trims",
             idFieldName: "id",
             name: "makes"
           }
