@@ -22,7 +22,7 @@ module.exports = {
           },
           {
             statement: "select distinct make from cars_models_trims",
-            idFieldName: "id",
+            idFieldName: "make",
             name: "makes"
           }
         ]
