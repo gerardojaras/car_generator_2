@@ -136,8 +136,7 @@ export default ({ data }) => {
             <aside>
               <div><br/>
                 <div style={{ "textAlign": "center" }}>
-                  <img src={node.image.split(";", 4)[3].split(",", 1)}
-                       alt={node.make + " " + node.model + " " + node.car_trim}/>
+                  
                 </div>
               </div>
               <div>
