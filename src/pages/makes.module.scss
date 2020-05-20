@@ -1,0 +1,11 @@
+.makes {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-start;
+  width: 90%;
+
+  h2 {
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+  }
+}
