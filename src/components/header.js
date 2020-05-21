@@ -1,8 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styles from "./header.module.scss"
-import BrandSelector from "./brandSelector"
 
 const Header = ({ siteTitle }) => {
   const logo = useStaticQuery(graphql`
@@ -28,7 +27,7 @@ const Header = ({ siteTitle }) => {
       <nav>
         <ul>
           <li><a href="https://www.cotizaseguro.com">Home</a></li>
-          <li><BrandSelector/></li>
+          <li><Link to="makes">Marcas</Link></li>
           <li><a href="https://www.cotizaseguro.com/vehicle-categories">Categories</a></li>
           <li><a href="http://cotizaseguro.com/seguro-de-hogar/">Get A Quote</a></li>
         </ul>

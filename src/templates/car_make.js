@@ -1,19 +1,18 @@
 import React from "react"
 import Layout from "../components/layout"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import styles from "../pages/makes.module.scss"
-import { Link } from "gatsby"
 
 
 const CarMake = ({ data }) => {
   return (
     <Layout>
       <div className={styles.makes}>
-        <h2>Marcas de Automoviles</h2>
-        {data.allMysqlCars.distinct.map((carMakes, i) => (
+        <h2>Modelos para el {data.allMysqlMakes.edges[0].node.make} - {data.allMysqlMakes.edges[0].node.model}</h2>
+        {data.allMysqlMakes.edges.map((carModels, i) => (
           <div key={i} className={styles.makeLink}>
-            <Link to={carMakes}>
-              {carMakes}
+            <Link to={carModels.node.make.replace(/ /g, "-") + "-" + carModels.node.model.replace(/ /g, "-")}>
+              {carModels.node.model}
             </Link>
           </div>
         ))}
@@ -28,8 +27,13 @@ export default CarMake
 
 export const make = graphql`
     query($displayMake: String) {
-        allMysqlCars(filter: {make: {eq: $displayMake}}) {
-            distinct(field: model)
+        allMysqlMakes(filter: {make: {eq: $displayMake}}) {
+            edges {
+                node {
+                    make
+                    model
+                }
+            }
         }
     }
 `

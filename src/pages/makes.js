@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/layout"
 import styles from "./makes.module.scss"
-import { Link } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 const Makes = ({ data }) => {
   return (
@@ -10,10 +10,10 @@ const Makes = ({ data }) => {
 
       <div className={styles.makes}>
         <h2>Marcas de Automoviles</h2>
-        {data.allMysqlMakes.edges.map((carMakes, i) => (
+        {data.allMysqlMakes.distinct.map((carMakes, i) => (
           <div key={i} className={styles.makeLink}>
-            <Link to={carMakes.node.make}>
-              {carMakes.node.make}
+            <Link to={carMakes.replace(/ /g, "-")}>
+              {carMakes}
             </Link>
           </div>
         ))}
@@ -27,11 +27,7 @@ export default Makes
 export const makes = graphql`
     query{
         allMysqlMakes {
-            edges {
-                node {
-                    make
-                }
-            }
+            distinct(field: make)
         }
     }
 `
