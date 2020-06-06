@@ -16,22 +16,22 @@ module.exports = {
         },
         queries: [
           {
-            statement: "select * from cars_models_trims where make is not null limit 10",
+            statement: "select * from cars_models_trims where make is not null",
             idFieldName: "id",
             name: "cars"
           },
           {
-            statement: "select id, make, model from cars_models_trims where make is not null group by make, model limit 10",
+            statement: "select id, make, model from cars_models_trims where make is not null group by make, model",
             idFieldName: "id",
             name: "makes"
           },
           {
-            statement: "select id, make, model, car_trim from cars_models_trims where make is not null group by make, model, car_trim limit 10",
+            statement: "select id, make, model, car_trim from cars_models_trims where make is not null group by make, model, car_trim",
             idFieldName: "id",
             name: "trims"
           },
           {
-            statement: "select id, make, model, car_trim, year from cars_models_trims where make is not null group by make, model, car_trim, year limit 10",
+            statement: "select id, make, model, car_trim, year from cars_models_trims where make is not null group by make, model, car_trim, year",
             idFieldName: "id",
             name: "years"
           }
