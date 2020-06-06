@@ -16,25 +16,25 @@ module.exports = {
         },
         queries: [
           {
-            statement: "select * from cars_models_trims where make is not null",
+            statement: "select * from cars_models_trims where make is not null limit 10",
             idFieldName: "id",
             name: "cars"
           },
           {
-            statement: "select id, make, model from cars_models_trims where make is not null group by make, model",
+            statement: "select id, make, model from cars_models_trims where make is not null group by make, model limit 10",
             idFieldName: "id",
             name: "makes"
           },
           {
-            statement: "select id, make, model, car_trim from cars_models_trims where make is not null group by make, model, car_trim",
+            statement: "select id, make, model, car_trim from cars_models_trims where make is not null group by make, model, car_trim limit 10",
             idFieldName: "id",
             name: "trims"
           },
           {
-            statement: "select id, make, model, car_trim, year from cars_models_trims where make is not null group by make, model, car_trim, year",
+            statement: "select id, make, model, car_trim, year from cars_models_trims where make is not null group by make, model, car_trim, year limit 10",
             idFieldName: "id",
             name: "years"
-          },
+          }
         ]
       }
     },
@@ -53,11 +53,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `Costiza Seguro`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
-        display: `minimal-ui`
+        display: `minimal-ui`,
+        icon: `src/images/favicon.png`
       }
     }
     // this (optional) plugin enables Progressive Web App + Offline functionality

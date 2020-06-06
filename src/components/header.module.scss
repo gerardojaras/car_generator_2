@@ -1,6 +1,26 @@
-.header {
+header {
+  background-color: #363636;
+  color: white;
   display: flex;
-  background: #AEC6CF;
-  padding: 20px 30px;
+  justify-content: space-between;
   align-items: center;
+
+  .logo {
+    margin-left: 1rem;
+  }
+
+  nav {
+    ul {
+      display: flex;
+
+      li {
+        padding: 1rem;
+
+        a, a.visited {
+          color: #9d9d9d;
+          text-decoration: none;
+        }
+      }
+    }
+  }
 }
