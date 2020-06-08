@@ -14,7 +14,7 @@ export default ({ data }) => {
               <div className={styles.autoHeader}>
                 <div>
                   <h1>Cotizaciones de seguro para
-                    el {node.make} - {node.model} {node.car_trim} {node.year}</h1>
+                    el {node.make ? node.make : ""} - {node.model ? node.model : ""} {node.car_trim ? node.car_trim : ""} {node.year ? node.year : ""}</h1>
                   <small>Auto Insurance Information</small>
                 </div>
               </div>
@@ -23,25 +23,30 @@ export default ({ data }) => {
           <nav className="breadcrumb is-small" aria-label="breadcrums">
             <ul>
               <li><a href="www.cotizaseguro.com">Home</a></li>
-              <li className="active"><Link to={node.make.replace(/ /g, "-")}>{node.make}</Link></li>
-              <li className="active"><Link
-                to={node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-")}>{node.model}</Link></li>
-              <li className="active"><Link
-                to={node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-")}>{node.car_trim}</Link>
+              <li className="active"><Link to={node.make ? node.make.replace(/ /g, "-") : ""}>{node.make || "NA"}</Link>
               </li>
               <li className="active"><Link
-                to={node.mysqlId + "-" + node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-") + "-" + node.year}>{node.year}</Link>
+                to={node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA"}>{node.model || "NA"}</Link>
+              </li>
+              <li className="active"><Link
+                to={node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.car_trim.replace(/ /g, "-") || "NA"}>{node.car_trim || "NA"}</Link>
+              </li>
+              <li className="active"><Link
+                to={node.mysqlId || "NA" + "-" + node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.car_trim.replace(/ /g, "-") || "NA" + "-" + node.year || "NA"}>{node.year}</Link>
               </li>
             </ul>
           </nav>
 
           <div className="columns">
             <div className="column">
-              <img className="img-responsive" src={node.image.split(";", 4)[0].split(",", 1)}
-                   alt={node.make + " " + node.model}/>
+              <img className="img-responsive" src={
+                node.image ? node.image.split(";", 4)[0].split(",", 1) : ""
+              }
+                   alt={node.make || "NA" + " " + node.model || "NA"}/>
             </div>
             <div className="column">
-              <h2>¿Cuánto cuesta asegurar mi {node.make} - {node.model} {node.car_trim} {node.year}</h2>
+              <h2>¿Cuánto cuesta asegurar
+                mi {node.make || "NA"} - {node.model || "NA"} {node.car_trim || "NA"} {node.year || "NA"}</h2>
               <p>La información provista aquí es para identificar su marca y modelo de automóvil y ayudarlo a informarle
                 sobre los costos del seguro. Los costos de cada marca y modelo de seguro pueden variar según el tamaño
                 del
@@ -59,7 +64,7 @@ export default ({ data }) => {
               <table className="table">
                 <thead>
                 <tr>
-                  <th className="tg-xphl" colSpan="2">Car Information</th>
+                  <th colSpan="2">Car Information</th>
                 </tr>
                 </thead>
                 <tbody>
