@@ -120,22 +120,22 @@ export default ({ data }) => {
                 </thead>
                 <tbody>
                 <tr>
-                  <th>Geico</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">Geico</a></th>
                 </tr>
                 <tr>
-                  <th>Erie</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">Erie</a></th>
                 </tr>
                 <tr>
-                  <th>USAA</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">USAA</a></th>
                 </tr>
                 <tr>
-                  <th>State Farm</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">State Farm</a></th>
                 </tr>
                 <tr>
-                  <th>Progressive</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">Progressive</a></th>
                 </tr>
                 <tr>
-                  <th>Nationwide</th>
+                  <th><a href="https://cotizaseguro.com/seguro-de-hogar/">Nationwide</a></th>
                 </tr>
                 </tbody>
               </table>
@@ -158,19 +158,23 @@ export default ({ data }) => {
             <div className="column">
               <div className="card">
                 <div className="card-image">
-                  <figure className="image is-4by3">
-                    <img className="img-responsive"
-                         src="https://cotizaseguro.com/wp-content/uploads/2020/01/NewLatinaComputerPhoto.jpg"
-                         alt="Las Principales Evaluaciones Para Obtener Un Préstamo"/>
-                  </figure>
+                  <a href="https://www.cotizaseguro.com/las-evaluaciones-para-obtener-un-prestamo/">
+                    <figure className="image is-4by3">
+                      <img className="img-responsive"
+                           src="https://cotizaseguro.com/wp-content/uploads/2020/01/NewLatinaComputerPhoto.jpg"
+                           alt="Las Principales Evaluaciones Para Obtener Un Préstamo"/>
+                    </figure>
+                  </a>
                 </div>
                 <div className="card-content">
                   <div className="content">
-                    <h3>Las principales evaluaciones para obtener un préstamo<br/>
-                      <small>Hipoteca</small>
+                    <h3><a href="https://www.cotizaseguro.com/las-evaluaciones-para-obtener-un-prestamo/">Las
+                      principales evaluaciones para obtener un préstamo<br/>
+                      <small>Hipoteca</small></a>
                     </h3>
-                    <p>Solicitar un préstamo bancario puede parecer un concurso de belleza en donde nosotros somos los
-                      participantes y el banco es el jurado calificador. ¿Cómo debo actuar?..</p>
+                    <p><a href="https://www.cotizaseguro.com/las-evaluaciones-para-obtener-un-prestamo/">Solicitar un
+                      préstamo bancario puede parecer un concurso de belleza en donde nosotros somos los
+                      participantes y el banco es el jurado calificador. ¿Cómo debo actuar?.</a></p>
                   </div>
                 </div>
               </div>
@@ -178,19 +182,23 @@ export default ({ data }) => {
             <div className="column">
               <div className="card">
                 <div className="card-image">
-                  <figure className="image is-4by3">
-                    <img className="img-responsive"
-                         src="https://cotizaseguro.com/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-07.07.40.png"
-                         alt="Consejos para ahorrar en el seguro de tu auto"/>
-                  </figure>
+                  <a href="https://www.cotizaseguro.com/asegurar-tu-auto/">
+                    <figure className="image is-4by3">
+                      <img className="img-responsive"
+                           src="https://cotizaseguro.com/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-07.07.40.png"
+                           alt="Consejos para ahorrar en el seguro de tu auto"/>
+                    </figure>
+                  </a>
                 </div>
                 <div className="card-content">
                   <div className="content">
-                    <h3>Consejos para ahorrar en el seguro de tu auto<br/>
-                      <small>Ahorro</small>
+                    <h3><a href="https://www.cotizaseguro.com/asegurar-tu-auto/">Consejos para ahorrar en el seguro de
+                      tu auto<br/>
+                      <small>Ahorro</small></a>
                     </h3>
-                    <p>En el siguiente post te aclaramos las dudas y te explicamos porqué debes comprar la póliza de
-                      seguro que protegerá tu auto de cualquier accidente.</p>
+                    <p><a href="https://www.cotizaseguro.com/asegurar-tu-auto/">En el siguiente post te aclaramos las
+                      dudas y te explicamos porqué debes comprar la póliza de
+                      seguro que protegerá tu auto de cualquier accidente.</a></p>
                   </div>
                 </div>
               </div>
@@ -198,20 +206,27 @@ export default ({ data }) => {
             <div className="column">
               <div className="card">
                 <div className="card-image">
-                  <figure className="image is-4by3">
-                    <img className="img-responsive"
-                         src="https://cotizaseguro.com/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-07.21.23.png"
-                         alt="Las Principales Evaluaciones Para Obtener Un Préstamo"/>
-                  </figure>
+                  <a href="https://cotizaseguro.com/ahorrar-en-el-seguro-de-tu-auto/">
+                    <figure className="image is-4by3">
+                      <img className="img-responsive"
+                           src="https://cotizaseguro.com/wp-content/uploads/2020/04/Screenshot-2020-04-16-at-07.21.23.png"
+                           alt="Las Principales Evaluaciones Para Obtener Un Préstamo"/>
+
+                    </figure>
+                  </a>
                 </div>
                 <div className="card-content">
                   <div className="content">
-                    <h3>Las principales evaluaciones para obtener un préstamo<br/>
-                      <small>Hipoteca</small>
+
+                    <h3><a href="https://cotizaseguro.com/ahorrar-en-el-seguro-de-tu-auto/">
+                      Las principales evaluaciones para obtener un préstamo<br/>
+                      <small>Auto</small>
+                    </a>
                     </h3>
-                    <p>Si has mirado opciones de seguros para tu auto y necesitas ahorrar dinero, en el siguiente
-                      artículo
-                      presentamos varias soluciones para ti..</p>
+
+                    <p><a href="https://cotizaseguro.com/ahorrar-en-el-seguro-de-tu-auto/">Si has mirado opciones de
+                      seguros para tu auto y necesitas ahorrar dinero, en el siguiente artículo presentamos varias
+                      soluciones para ti..</a></p>
 
                   </div>
                 </div>
@@ -320,7 +335,6 @@ export const query = graphql`
                     hp
                     country_origin
                     range
-                    doors
                     image
                 }
             }

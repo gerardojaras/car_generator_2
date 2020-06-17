@@ -1,10 +1,17 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Cotiza Seguro`,
+    description: `Compara y compra seguros de vehiculos`,
     author: `@gatsbyjs`
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-5MR9JXM",
+        includeInDevelopment: true
+      }
+    },
     {
       resolve: `gatsby-source-mysql`,
       options: {
@@ -16,7 +23,7 @@ module.exports = {
         },
         queries: [
           {
-            statement: "select * from cars_models_trims where make is not null",
+            statement: "select id, make, model, car_trim, year, classification, 'engine-size', hp, 'country-origin', doors, image, `range` from cars_models_trims where make is not null",
             idFieldName: "id",
             name: "cars"
           },
