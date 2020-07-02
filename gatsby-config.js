@@ -2,9 +2,119 @@ module.exports = {
   siteMetadata: {
     title: `Cotiza Seguro`,
     description: `Compara y compra seguros de vehiculos`,
-    author: `@gatsbyjs`
+    author: `Gerardo Jaramillo`,
+    siteUrl: `https://autos.cotizaseguro.com/`
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        exclude: [
+          `/`,
+          `/AM General`,
+          `/Acura`,
+          `/Alfa Romeo`,
+          `/Aston Martin`,
+          `/Audi`,
+          `/BMW`,
+          `/Bentley`,
+          `/Bugatti`,
+          `/Buick`,
+          `/Cadillac`,
+          `/Chevrolet`,
+          `/Chrysler`,
+          `/Daewoo`,
+          `/Dodge`,
+          `/Eagle`,
+          `/FIAT`,
+          `/Ferrari`,
+          `/Fisker`,
+          `/Ford`,
+          `/GMC`,
+          `/Genesis`,
+          `/Geo`,
+          `/HUMMER`,
+          `/Honda`,
+          `/Hyundai`,
+          `/INFINITI`,
+          `/Isuzu`,
+          `/Jaguar`,
+          `/Jeep`,
+          `/Kia`,
+          `/Lamborghini`,
+          `/Land Rover`,
+          `/Lexus`,
+          `/Lincoln`,
+          `/Lotus`,
+          `/MINI`,
+          `/Maserati`,
+          `/Maybach`,
+          `/Mazda`,
+          `/McLaren`,
+          `/Mercedes-Benz`,
+          `/Mercury`,
+          `/Mitsubishi`,
+          `/Nissan`,
+          `/Oldsmobile`,
+          `/Panoz`,
+          `/Plymouth`,
+          `/Pontiac`,
+          `/Porsche`,
+          `/Ram`,
+          `/Rolls-Royce`,
+          `/Saab`,
+          `/Saturn`,
+          `/Scion`,
+          `/Spyker`,
+          `/Subaru`,
+          `/Suzuki`,
+          `/Tesla`,
+          `/Toyota`,
+          `/Volkswagen`,
+          `/Volvo`,
+          `/smart`,
+          `/404`,
+          `/404.html`,
+          `/dev-404-page`
+        ],
+        query: `{
+          site {
+            siteMetadata {
+              siteUrl
+            }
+          }
+
+          allSitePage {
+            nodes {
+              path
+            }
+          }
+          
+          allMysqlCars{
+            edges {
+              node {
+                mysqlId
+                make
+                model
+                car_trim
+                year
+              }
+            }
+          }
+      }`,
+        serialize: ({ site, allSitePage, allMysqlCars }) => {
+          let pages = []
+          allMysqlCars.edges.forEach(({ node }) => {
+            pages.push({
+              url: site.siteMetadata.siteUrl + node.mysqlId + "-" + node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-") + "-" + node.year,
+              changefreq: `daily`,
+              priority: 0.7
+            })
+          })
+          return pages
+        }
+      }
+    },
     {
       resolve: "gatsby-plugin-google-tagmanager",
       options: {
@@ -54,6 +164,13 @@ module.exports = {
         path: `${__dirname}/src/images`
       }
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `carimages`,
+        path: `${__dirname}/src/images/cars`
+      }
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -68,8 +185,8 @@ module.exports = {
         icon: `src/images/favicon.png`
       }
     }
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+// this (optional) plugin enables Progressive Web App + Offline functionality
+// To learn more, visit: https://gatsby.dev/offline
+// `gatsby-plugin-offline`,
   ]
 }

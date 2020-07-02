@@ -22,17 +22,16 @@ export default ({ data }) => {
           </div>
           <nav className="breadcrumb is-small" aria-label="breadcrums">
             <ul>
-              <li><a href="www.cotizaseguro.com">Home</a></li>
+              <li><a href="https://www.cotizaseguro.com">Home</a></li>
               <li className="active"><Link to={node.make ? node.make.replace(/ /g, "-") : ""}>{node.make || "NA"}</Link>
               </li>
               <li className="active"><Link
-                to={node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA"}>{node.model || "NA"}</Link>
+                to={node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA"}>{node.model || "NA"}</Link>
               </li>
               <li className="active"><Link
-                to={node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.car_trim.replace(/ /g, "-") || "NA"}>{node.car_trim || "NA"}</Link>
+                to={node.make.replace(/ /g, "-") + "-" + node.model.replace(/ /g, "-") + "-" + node.car_trim.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.car_trim.replace(/ /g, "-") || "NA"}>{node.car_trim || "NA"}</Link>
               </li>
-              <li className="active"><Link
-                to={node.mysqlId || "NA" + "-" + node.make.replace(/ /g, "-") || "NA" + "-" + node.model.replace(/ /g, "-") || "NA" + "-" + node.car_trim.replace(/ /g, "-") || "NA" + "-" + node.year || "NA"}>{node.year}</Link>
+              <li className="active">{node.year}
               </li>
             </ul>
           </nav>
@@ -40,7 +39,7 @@ export default ({ data }) => {
           <div className="columns">
             <div className="column">
               <img className="img-responsive" src={
-                node.image ? node.image.split(";", 4)[0].split(",", 1) : ""
+                node.image ? node.image.split(";", 4)[0].split(",", 1) : "https://bulma.io/images/placeholders/256x256.png"
               }
                    alt={node.make || "NA" + " " + node.model || "NA"}/>
             </div>
